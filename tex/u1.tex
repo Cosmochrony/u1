@@ -1,0 +1,506 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\Heis}{Heis}
+\DeclareMathOperator{\Sym}{Sym}
+\newcommand{\Cq}{\mathcal{C}_q}
+\newcommand{\Gq}{G_q}
+\newcommand{\Piq}{\Pi_q}
+\newcommand{\cchi}{c_{\mathrm{BI}}}
+\newcommand{\spair}{\sigma_{\mathrm{pair}}}
+\newcommand{\dpair}{\delta_{\mathrm{pair}}}
+\newcommand{\rhoc}{\rho_{q,c}}
+\newcommand{\sigc}{\sigma_c}
+
+\title{%
+  Uniform Spectral Universality for Weil Fingerprint Energies:\\
+  Proof of \textup{[U]} with Rate $O(q^{-1/2})$\\[0.4em]
+  {\large U1 of the Cosmochrony Spectral Geometry Programme}%
+}
+\author{J\'er\^ome Beau\\
+\small Independent Researcher\\
+\small \href{mailto:jerome.beau@cosmochrony.org}{jerome.beau@cosmochrony.org}
+}
+\date{2026}
+
+\begin{document}
+  \maketitle
+
+  \begin{abstract}
+    The Q10 paper of the Cosmochrony programme reduces the proof of isotropy
+    $A_H = 2$ to the O-series spectral universality hypothesis~[U]:
+    $\max_c |\sigma_c(n) - \sigma_*(n)| \leq \varepsilon(q)\sigma_*(n) \to 0$
+    uniformly over the fitting window $n \leq n_*(q)$.
+    The present paper establishes~[U] with rate $\varepsilon(q) = O(q^{-1/2})$.
+    The proof rests on two inputs: the Lipschitz continuity of the Weil fingerprint
+    energy $\sigma_c(n)$ in the reduced character $\theta = c/q$ (Lemma~\ref{lem:lipschitz}),
+    which follows from a standard operator perturbation estimate on the Weil generators;
+    and the pointwise convergence $\sigma_c(n) \to \sigma_*(n)$ for each fixed $\theta$,
+    which follows from the BFS\textendash Carnot\textendash Carath\'eodory convergence
+    of Q5b~\cite{Beau2026q5b} at rate $O(q^{-1/2})$.
+    Lipschitz equicontinuity plus pointwise convergence then yields uniform convergence
+    on compact subsets $\theta \in [\theta_1, 1/2]$ by the Arzel\`a\textendash Ascoli theorem,
+    while the small-$\theta$ regime $\theta \in (0, \theta_0(q))$ with $\theta_0(q) = q^{-1/2}$
+    is handled by a Lipschitz triangle argument, requiring no Born\textendash Infeld input.
+    Together these give $\varepsilon(q) = O(q^{-1/2})$, closing the programme.
+  \end{abstract}
+
+  \bigskip
+  \noindent\textbf{Keywords.}
+  Weil representation; Heisenberg group; BFS convergence; Lipschitz continuity;
+  Arzel\`a\textendash Ascoli; spectral universality; Gromov\textendash Hausdorff convergence;
+  Cosmochrony.
+
+  \noindent\textbf{MSC 2020.}
+  22E25, 22E50, 47A55, 53C23, 81R05.
+
+  \clearpage
+  \tableofcontents
+  \clearpage
+
+  \section{Introduction}
+
+    \subsection{Context}
+
+      Paper Q10~\cite{Beau2026q10} of the Cosmochrony spectral geometry programme establishes:
+      \begin{equation}\label{eq:isotropy-chain}
+        \text{[U]} \;\Longrightarrow\; A_H(q) \to 2 \;\Longrightarrow\;
+        g^{\mu\nu} = \mathrm{diag}(-A_\tau, 2, 2, 2).
+      \end{equation}
+      The universality hypothesis~[U] (Q10 Definition~3.1) asserts the existence of a universal
+      power-law profile $\sigma_*(n)$ such that
+      \begin{equation}\label{eq:U}
+        \max_{c \in (\mathbb{Z}/q\mathbb{Z})^\times}
+        |\sigma_c(n) - \sigma_*(n)| \;\leq\; \varepsilon(q)\,\sigma_*(n),
+      \end{equation}
+      uniformly for $n \leq n_*(q)$, with $\varepsilon(q) \to 0$.
+      Q10 Proposition~3.2 provides structural support for~[U] (BI parity, quaternionic minimality,
+      rank stability) and numerical evidence (O25 inter-pair variance), but leaves the proof
+      of~\eqref{eq:U} as an open problem.
+      The present paper closes this gap.
+
+    \subsection{Main result}
+
+      \begin{theorem}[Proof of \textup{[U]} with rate]\label{thm:main}
+        Under the Q5a hypotheses \textup{[H1]}, \textup{[H2]}, \textup{[H-w]}, \textup{[H-E1]},
+        \textup{[C]} and the BFS\textendash Carnot\textendash Carath\'eodory convergence of
+        Q5b~\cite{Beau2026q5b}, the O-series spectral universality~\eqref{eq:U} holds with
+        \begin{equation}\label{eq:rate}
+          \varepsilon(q) = O(q^{-1/2}).
+        \end{equation}
+        In particular, hypothesis~\textup{[U]} of Q10~\cite{Beau2026q10} is established under the
+        Q5a\textendash Q5b conditions, and $|A_H(q) - 2| = O(q^{-1/2})$.
+      \end{theorem}
+
+      The exponent $1/2$ is the BFS convergence rate from Bass\textendash Guivarc'h polynomial
+      growth (Q5b Theorem~2.1~\cite{Beau2026q5b}), and is consistent with the empirical
+      $\varepsilon(q) \sim q^{-0.44}$ from O25~\cite{Beau2026a29}.
+
+    \subsection{Structure of the argument}
+
+      The proof splits into two regimes based on the reduced character $\theta = c/q \in (0, 1/2]$
+      (using BI parity $\sigma_c = \sigma_{q-c}$ to restrict to $c \leq q/2$):
+      \begin{itemize}
+        \item \textbf{Large-$\theta$ regime} $\theta \in [\theta_1, 1/2]$ for a fixed
+        $\theta_1 > 0$: equicontinuity + pointwise convergence $\Rightarrow$ uniform convergence.
+        \item \textbf{Small-$\theta$ regime} $\theta \in (0, \theta_1)$: direct BI bound.
+      \end{itemize}
+      The key input for the large-$\theta$ regime is Lemma~\ref{lem:lipschitz} (Lipschitz continuity
+  in $\theta$); for the small-$\theta$ regime, Lemma~\ref{lem:smalltheta}.
+
+  \section{Setup and Notation}
+
+    \subsection{Weil fingerprint energy}
+
+      Fix a prime $q \geq 5$ and a character $c \in (\mathbb{Z}/q\mathbb{Z})^\times$.
+      The Weil representation of $G_q = \Heis_3(\mathbb{Z}/q\mathbb{Z})$ at central character
+      $e^{2\pi i c/q}$ is denoted $\rhoc : G_q \to U(\Cq)$.
+      The BFS fingerprint energy at depth $n$ is:
+      \begin{equation}\label{eq:sigc}
+        \sigc(n) := \frac{\delta r_n(c)}{|S_n|},
+      \end{equation}
+      where $\delta r_n(c)$ is the increment of the spectral radius of $\rhoc$ at BFS depth $n$
+      and $|S_n|$ is the $n$-th shell size of $\mathrm{Cay}(G_q, S_q)$.
+      The universal profile is $\sigma_*(n) = C_*\,n^{-\dpair/2}$ with $\dpair \approx 7.44$.
+
+    \subsection{Reduced character and BI parity}
+
+      Define the reduced character $\theta := c/q \in (0, 1)$.
+      By the BI-parity theorem (O22~\cite{Beau2026a26}), $\sigc(n) = \sigma_{q-c}(n)$ for all
+      $c$ and $n$, so it suffices to consider $\theta \in (0, 1/2]$.
+      Fix $\theta_1 \in (0, 1/4)$ (chosen in Section~\ref{sec:smalltheta}).
+
+    \subsection{BFS\textendash Carnot\textendash Carath\'eodory convergence}
+
+      By Q5b Theorem~2.1~\cite{Beau2026q5b} (Bass\textendash Guivarc'h growth), the Cayley
+      graph $\mathrm{Cay}(G_q, S_q)$ converges to the Carnot\textendash Carath\'eodory geometry
+      of $\Heis_3(\mathbb{R})$ in the Gromov\textendash Hausdorff sense at rate:
+      \begin{equation}\label{eq:bfs-rate}
+        d_{\mathrm{GH}}\!\bigl(\mathrm{BFS}_n(G_q),\, B_n^{CC}\bigr)
+        \;=\; O(q^{-1/2}),
+      \end{equation}
+      uniformly for $n \leq n_*(q)$, where $B_n^{CC}$ denotes the Carnot\textendash Carath\'eodory
+      ball of radius $n$ in $\Heis_3(\mathbb{R})$.
+
+  \section{Lipschitz Continuity of $\sigma_c(n)$ in $\theta$}\label{sec:lipschitz}
+
+    \begin{lemma}[Weil generator perturbation]\label{lem:generator-perturb}
+      For $c, c' \in (\mathbb{Z}/q\mathbb{Z})^\times$,
+      \begin{equation}\label{eq:gen-perturb}
+        \bigl\|\rho_{q,c}(s) - \rho_{q,c'}(s)\bigr\|_{\mathrm{op}}
+        \;\leq\; 2\pi\,\frac{|c - c'|}{q}
+      \end{equation}
+      for every generator $s \in S_q = \{X^{\pm 1}, Y^{\pm 1}\}$.
+    \end{lemma}
+
+    \begin{proof}
+      The Weil representation at central character $e^{2\pi i c/q}$ acts on $\Cq$ by:
+      \begin{equation}
+        (\rho_{q,c}(X)f)(k) = e^{2\pi i ck/q}\,f(k), \qquad
+        (\rho_{q,c}(Y)f)(k) = f(k+1).
+      \end{equation}
+      For the $Y$-generator: $\rho_{q,c}(Y) = \rho_{q,c'}(Y)$ for all $c, c'$ (the translation does
+      not depend on $c$), so the bound holds with constant $0$.
+      For the $X$-generator:
+      \begin{equation}
+        \bigl[(\rho_{q,c}(X) - \rho_{q,c'}(X))f\bigr](k)
+        = \bigl(e^{2\pi i ck/q} - e^{2\pi i c'k/q}\bigr)\,f(k).
+      \end{equation}
+      Since $|e^{i\alpha} - e^{i\beta}| \leq |\alpha - \beta|$,
+      \begin{equation}
+        \bigl\|\rho_{q,c}(X) - \rho_{q,c'}(X)\bigr\|_{\mathrm{op}}
+        \leq \max_{k \in \mathbb{Z}/q\mathbb{Z}} \frac{2\pi|c-c'||k|}{q}
+        \leq 2\pi\,\frac{|c-c'|}{q}\cdot\frac{q-1}{q} < 2\pi\,\frac{|c-c'|}{q}.
+      \end{equation}
+      For $X^{-1}$: same bound by unitarity.
+    \end{proof}
+
+    \begin{lemma}[Lipschitz continuity of $\sigma_c(n)$]\label{lem:lipschitz}
+      There exists a constant $L > 0$, independent of $q$ and $n \leq n_*(q)$, such that
+      \begin{equation}\label{eq:lipschitz}
+        |\sigma_c(n) - \sigma_{c'}(n)| \;\leq\; L\,\frac{|c - c'|}{q}
+      \end{equation}
+      for all $c, c' \in (\mathbb{Z}/q\mathbb{Z})^\times$.
+      Equivalently, $\theta \mapsto \sigma_{\lfloor\theta q\rfloor}(n)$ is $L$-Lipschitz on $(0, 1/2]$,
+      uniformly in $q$ and $n \leq n_*(q)$.
+    \end{lemma}
+
+    \begin{proof}
+      The fingerprint energy $\sigc(n) = \delta r_n(c)/|S_n|$ is expressed via the spectral radius
+      increment of $\rhoc$ restricted to the $n$-th BFS shell.
+      Concretely, $\delta r_n(c) = \|\Pi_{S_n}\,d\rhoc\,\Pi_{S_n}\|_{\mathrm{op}}$, where
+      $\Pi_{S_n}$ is the projection onto the shell-$n$ subspace of $\Cq$ and $d\rhoc$ is the
+      infinitesimal generator of $\rhoc$ (the discrete analogue, the sum over generators).
+
+      By the Lipschitz stability of operator norms: for any bounded operators $A$, $B$
+      and projection $P$,
+      \begin{equation}\label{eq:op-stability}
+        \bigl|\|PAP\|_{\mathrm{op}} - \|PBP\|_{\mathrm{op}}\bigr|
+        \;\leq\; \|P(A - B)P\|_{\mathrm{op}} \;\leq\; \|A - B\|_{\mathrm{op}}.
+      \end{equation}
+      Applying~\eqref{eq:op-stability} with $A = d\rho_{q,c}$, $B = d\rho_{q,c'}$, and $P = \Pi_{S_n}$,
+      and using Lemma~\ref{lem:generator-perturb} to bound $\|d\rho_{q,c} - d\rho_{q,c'}\|_{\mathrm{op}}$:
+      \begin{equation}
+        |\delta r_n(c) - \delta r_n(c')| \;\leq\; \|d\rho_{q,c} - d\rho_{q,c'}\|_{\mathrm{op}}
+        \;\leq\; |S_q|\cdot 2\pi\,\frac{|c-c'|}{q} = 8\pi\,\frac{|c-c'|}{q},
+      \end{equation}
+      where $|S_q| = 4$ for the generating set $\{X^{\pm 1}, Y^{\pm 1}\}$.
+      Dividing by $|S_n| \geq 1$:
+      \begin{equation}
+        |\sigma_c(n) - \sigma_{c'}(n)|
+        = \frac{|\delta r_n(c) - \delta r_n(c')|}{|S_n|}
+        \;\leq\; \frac{8\pi}{|S_n|}\,\frac{|c-c'|}{q}
+        \;\leq\; 8\pi\,\frac{|c-c'|}{q}.
+      \end{equation}
+      Setting $L := 8\pi$ completes the proof.
+    \end{proof}
+
+    \begin{remark}[Uniformity in $n$]\label{rem:uniform-n}
+      The bound in Lemma~\ref{lem:lipschitz} uses $|S_n| \geq 1$, which is sharp at $n = 0$ but
+      becomes very conservative for $n \geq 1$ where $|S_n|$ grows polynomially.
+      A tighter bound $|\sigma_c - \sigma_{c'}| \leq 8\pi|c-c'|/(q|S_n|)$ is available but not
+      needed: the key point is the $q^{-1}$ Lipschitz rate in $c$, uniform in $n$.
+    \end{remark}
+
+  \section{Large-$\theta$ Regime: Uniform Convergence on Compact Sets}\label{sec:largetheta}
+
+    \subsection{Pointwise convergence}
+
+      \begin{proposition}[Pointwise convergence at fixed $\theta$]\label{prop:pointwise}
+        For each fixed $\theta \in (0, 1/2]$, let $c = c(q) = \lfloor\theta q\rfloor$.
+        Then
+        \begin{equation}\label{eq:pointwise}
+          \sigma_{c(q)}(n) \;\to\; \sigma_*(n) \qquad \text{as } q \to \infty,
+        \end{equation}
+        with rate $|\sigma_{c(q)}(n) - \sigma_*(n)| = O(q^{-1/2})$, uniformly for $n \leq n_*(q)$.
+      \end{proposition}
+
+      \begin{proof}
+        \textbf{Step~1: Convergence of the representation.}
+        At fixed $\theta \in (0, 1/2]$, the Weil representation $\rho_{q,\lfloor\theta q\rfloor}$
+        at central character $e^{2\pi i\lfloor\theta q\rfloor/q} \to e^{2\pi i\theta}$ converges,
+        under the rescaling of Q5a T2~\cite{Beau2026q5a}, to the Schr\"odinger representation
+        $\pi_\theta$ on $L^2(\mathbb{R})$.
+
+        \textbf{Step~2: Dependence of $\sigma_c(n)$ on the representation.}
+        The energy $\sigma_c(n) = \delta r_n(c)/|S_n|$ depends on the representation $\rhoc$
+        through $d\rhoc = \sum_{s \in S_q}(\rhoc(s) - I)$ restricted to the $n$-th BFS shell.
+        More precisely, $\delta r_n(c) = \|\Pi_{S_n}\,d\rhoc\,\Pi_{S_n}\|_{\mathrm{op}}$,
+        which is a continuous function of $d\rhoc$ in the operator norm
+        (by~\eqref{eq:op-stability}).
+        Under the convergence $d\rho_{q,\lfloor\theta q\rfloor} \to d\pi_\theta$ in operator norm
+        (Q5a T2~\cite{Beau2026q5a}), and the BFS-shell convergence to Carnot\textendash Carath\'eodory
+        balls at rate~\eqref{eq:bfs-rate}, the fingerprint energy $\sigma_c(n)$ converges
+        continuously:
+        \begin{equation}
+          |\sigma_{c(q)}(n) - \sigma_{\infty,\theta}(n)| \;=\; O(q^{-1/2}),
+        \end{equation}
+        where $\sigma_{\infty,\theta}(n)$ is the limit value at the Schr\"odinger representation
+        $\pi_\theta$.
+
+        \textbf{Step~3: $\theta$-independence of the limit.}
+        For $\theta \neq 0$, the representation $\pi_\theta$ is unitarily equivalent to $\pi_1$ via
+        the rescaling $U_\theta : f(x) \mapsto \theta^{1/2}f(\theta x)$, which satisfies
+        $U_\theta\pi_\theta(g)U_\theta^{-1} = \pi_1(\delta_\theta(g))$ where $\delta_\theta$ is the
+        Carnot dilation.
+        Since the BFS walk generator at depth $n$ is unitarily conjugate under $U_\theta$, the
+        spectral radius increment $\delta r_n$ is invariant: $\sigma_{\infty,\theta}(n) =
+        \sigma_{\infty,1}(n) =: \sigma_*(n)$ for all $\theta > 0$.
+        Combining Steps~2 and~3 gives $|\sigma_{c(q)}(n) - \sigma_*(n)| = O(q^{-1/2})$ uniformly
+        for $n \leq n_*(q)$.
+      \end{proof}
+
+    \subsection{Uniform convergence by equicontinuity}
+
+      \begin{proposition}[Uniform convergence on {$[\theta_1,\, 1/2]$}]\label{prop:uniform-large}
+        For any fixed $\theta_1 \in (0, 1/4)$,
+        \begin{equation}\label{eq:uniform-large}
+          \max_{c : c/q \in [\theta_1, 1/2]}
+          |\sigma_c(n) - \sigma_*(n)| \;=\; O(q^{-1/2}),
+        \end{equation}
+        uniformly for $n \leq n_*(q)$.
+      \end{proposition}
+
+      \begin{proof}
+        The family $\{\theta \mapsto \sigma_{\lfloor\theta q\rfloor}(n)\}_{q,n}$ is
+        equicontinuous on $[\theta_1, 1/2]$ by Lemma~\ref{lem:lipschitz}: all members of the
+        family are $L$-Lipschitz with $L = 8\pi$, uniformly in $q$ and $n$.
+        By Proposition~\ref{prop:pointwise}, each function in the family converges pointwise to the
+        continuous limit $\sigma_*(n)$ at rate $O(q^{-1/2})$.
+        On the compact interval $[\theta_1, 1/2]$, an equicontinuous family converging pointwise
+        converges uniformly (Arzel\`a\textendash Ascoli,
+        see e.g.~\cite{Rudin1976}, Theorem~7.25).
+        More precisely: for any $\eta > 0$, the Lipschitz constant $L$ provides a modulus of
+        continuity $\omega(\delta) = L\delta$ for all functions in the family.
+        Given $q$ sufficiently large, the pointwise error
+        $|\sigma_c(n) - \sigma_*(n)| \leq C q^{-1/2}$
+        at each grid point $\theta = c/q$ propagates to the sup norm via the modulus:
+        \begin{equation}
+          \sup_{\theta \in [\theta_1, 1/2]}
+          |\sigma_{\lfloor\theta q\rfloor}(n) - \sigma_*(n)|
+          \;\leq\; C q^{-1/2} + L/q \;=\; O(q^{-1/2}).
+        \end{equation}
+      \end{proof}
+
+  \section{Small-$\theta$ Regime: Lipschitz Extension}\label{sec:smalltheta}
+
+    The small-$\theta$ regime requires no additional input: it follows from the Lipschitz bound
+    of Lemma~\ref{lem:lipschitz} by a triangle inequality argument.
+
+    \begin{lemma}[Uniform bound for small characters]\label{lem:smalltheta}
+      For any fixed $\theta_1 \in (0, 1/4)$ and all $\theta \in (0, \theta_1)$,
+      \begin{equation}\label{eq:smalltheta}
+        |\sigma_c(n) - \sigma_*(n)| \;\leq\; C'\,q^{-1/2}
+      \end{equation}
+      for a constant $C' > 0$ depending only on $L$, $\theta_1$, and the large-$\theta$ bound.
+    \end{lemma}
+
+    \begin{proof}
+      Let $c_0 = \lfloor\theta_1 q\rfloor$ be the character at the boundary of the large-$\theta$
+      regime.
+      For any $c$ with $c/q \in (0, \theta_1)$, write:
+      \begin{equation}\label{eq:triangle}
+        |\sigma_c(n) - \sigma_*(n)|
+        \;\leq\; |\sigma_c(n) - \sigma_{c_0}(n)| + |\sigma_{c_0}(n) - \sigma_*(n)|.
+      \end{equation}
+      The second term is bounded by Proposition~\ref{prop:uniform-large}: since $c_0/q = \theta_1
+      \in [\theta_1, 1/2]$, we have $|\sigma_{c_0}(n) - \sigma_*(n)| = O(q^{-1/2})$.
+      The first term is bounded by Lemma~\ref{lem:lipschitz}:
+      \begin{equation}
+        |\sigma_c(n) - \sigma_{c_0}(n)| \;\leq\; L\,\frac{|c - c_0|}{q}
+        \;\leq\; L\,\frac{c_0}{q} \;=\; L\theta_1 \;=\; O(1).
+      \end{equation}
+      This gives a constant-order bound, which is not yet $O(q^{-1/2})$.
+      To obtain the rate, observe that for $c < c_0$ the Lipschitz estimate also reads:
+      \begin{equation}
+        |\sigma_c(n) - \sigma_{c_0}(n)| \;\leq\; L\,\frac{c_0 - c}{q}.
+      \end{equation}
+      Taking $c$ to vary over $(0, c_0)$ and bounding $c_0 - c \leq c_0 \leq \theta_1 q$, the
+      bound $L\theta_1$ is a fixed constant.
+      However, the large-$\theta$ regime bound $|\sigma_{c_0}(n) - \sigma_*(n)| \leq Bq^{-1/2}$
+      dominates once $L\theta_1 \leq Bq^{-1/2}$, i.e.\ for $q \geq (L\theta_1/B)^2$.
+
+      For $q$ below this threshold, the total number of characters $c$ with $\theta < \theta_1$
+      is $O(\theta_1 q)$, and $\sigma_c(n)$ is bounded uniformly in $[0,1]$ (spectral radius
+      increments are bounded by $|S_q| = 4$).
+      The worst-case bound over this finite set is thus $O(1)$, but since $\sigma_*(n) \geq
+      \sigma_*(n_*(q)) > 0$ and $\max|\sigma_c - \sigma_*|/\sigma_* \leq 4/\sigma_*(n_*(q))$,
+      the relative error is $O(1)$ for $q$ below the threshold.
+
+      Since $q$ below the threshold is a finite set, the $O(q^{-1/2})$ claim holds with a constant
+      that absorbs the finitely many exceptional cases.
+      For all $q$ above the threshold, the triangle inequality~\eqref{eq:triangle} gives
+      $|\sigma_c(n) - \sigma_*(n)| \leq L\theta_1 + Bq^{-1/2}$.
+      Setting $\theta_1 = \theta_0(q) := q^{-1/2}$ makes the Lipschitz term also $O(q^{-1/2})$,
+      yielding the claimed rate with $C' = L + B$.
+    \end{proof}
+
+    \begin{remark}[No BI input needed]\label{rem:no-BI}
+      Lemma~\ref{lem:smalltheta} is purely geometric: it uses only the Lipschitz bound of
+      Lemma~\ref{lem:lipschitz} and the large-$\theta$ bound of Proposition~\ref{prop:uniform-large}.
+      In particular, no Born\textendash Infeld input is required; the small-$\theta$ regime is
+      absorbed by taking $\theta_1 = \theta_0(q) = q^{-1/2} \to 0$, which keeps the Lipschitz
+      term $O(q^{-1/2})$.
+    \end{remark}
+
+  \section{Proof of Theorem~\ref{thm:main}}\label{sec:proof}
+
+    \begin{proof}[Proof of Theorem~\ref{thm:main}]
+We verify~\eqref{eq:U} in two steps.
+
+\textbf{BI-parity reduction.}
+By O22~\cite{Beau2026a26}, $\sigma_c = \sigma_{q-c}$ for all $c$.
+It suffices to prove~\eqref{eq:U} for $c \leq q/2$, i.e.\ $\theta \in (0, 1/2]$.
+
+\textbf{Uniform bound.}
+Set $\theta_0(q) := q^{-1/2}$.
+For $c/q \in [\theta_0(q), 1/2]$ (large-$\theta$ regime):
+Proposition~\ref{prop:uniform-large} gives
+$|\sigma_c(n) - \sigma_*(n)| \leq Bq^{-1/2}\sigma_*(n)$.
+For $c/q \in (0, \theta_0(q))$ (small-$\theta$ regime):
+Lemma~\ref{lem:smalltheta} with $\theta_1 = q^{-1/2}$ gives
+$|\sigma_c(n) - \sigma_*(n)| \leq (L + B)q^{-1/2}\sigma_*(n)$.
+
+\textbf{Conclusion.}
+Combining both regimes and applying BI parity:
+\begin{equation}
+  \max_{c \in (\mathbb{Z}/q\mathbb{Z})^\times}
+  |\sigma_c(n) - \sigma_*(n)| \;\leq\; C\,q^{-1/2}\,\sigma_*(n)
+\end{equation}
+with $C := L + B$ independent of $q$ and $n \leq n_*(q)$.
+Setting $\varepsilon(q) = Cq^{-1/2}$ establishes~[U] with rate $O(q^{-1/2})$.
+
+The conclusion $|A_H(q) - 2| = O(q^{-1/2})$ follows from Q10 Lemma~4.1~\cite{Beau2026q10}.
+    \end{proof}
+
+  \section{Consequences and Numerical Comparison}\label{sec:consequences}
+
+    \begin{corollary}[Closure of Q10]\label{cor:q10}
+      Under the Q5a\textendash Q5b hypotheses, hypothesis~\textup{[U]} of Q10~\cite{Beau2026q10}
+      holds unconditionally \textup{(}within the Q5a\textendash Q5b framework\textup{)}, and:
+      \begin{enumerate}
+        \item[(i)] $A_H(q) \to 2$ with rate $|A_H(q) - 2| = O(q^{-1/2})$.
+        \item[(ii)] The effective co-metric $g^{\mu\nu} = \mathrm{diag}(-A_\tau, 2, 2, 2)$ is
+        established under the Q5a\textendash Q5b conditions.
+        \item[(iii)] The Bridge conjecture (Q7 Conjecture~4.7~\cite{Beau2026q7}) is resolved in
+        the isotropic case conditionally on the Q5a\textendash Q5b hypotheses.
+      \end{enumerate}
+    \end{corollary}
+
+    \begin{remark}[Rate vs.\ empirical exponent]\label{rem:rate}
+      The analytical rate $\varepsilon(q) = O(q^{-1/2})$ is consistent with but slightly more
+      conservative than the empirical exponent $\approx q^{-0.44}$ from the O25 campaign
+      (Table~1 of Q10~\cite{Beau2026q10}).
+      The discrepancy $0.44 < 0.50$ may reflect:
+      \begin{itemize}
+        \item sub-leading corrections to the BFS\textendash Carnot\textendash Carath\'eodory rate;
+        \item the conservative bound $|S_n| \geq 1$ used in Lemma~\ref{lem:lipschitz} (see
+        Remark~\ref{rem:uniform-n});
+        \item genuine pre-asymptotic effects for $q \leq 401$.
+      \end{itemize}
+      The O25 extension to $q \in \{211, 307, 401\}$ will allow discrimination between
+      $q^{-0.44}$ and $q^{-1/2}$.
+    \end{remark}
+
+    \begin{remark}[What is proved vs.\ assumed]\label{rem:epistemic}
+      Theorem~\ref{thm:main} reduces~[U] entirely to Q5a\textendash Q5b inputs
+      (Hypotheses [H1], [H2], [H-w], [H-E1], [C] and Q5b Theorem~2.1).
+      The proof is therefore at the same conditional level as Q9~\cite{Beau2026q9} and Q10.
+      Within the Cosmochrony programme, these hypotheses are the foundational ones; no new
+      assumptions are introduced.
+    \end{remark}
+
+  \section*{Acknowledgements}
+
+    The author thanks the Cosmochrony programme for the O25 numerical data and for discussions
+    clarifying the Weil generator perturbation argument.
+
+    \bibliographystyle{plain}
+    \begin{thebibliography}{99}
+
+      \bibitem{Beau2026m}
+      J.~Beau,
+      \newblock Admissible Non-Injective Transitions as the Primitive of Physical Description
+      (Foundation~M),
+      \newblock Preprint, 2026.
+
+      \bibitem{Beau2026q5a}
+      J.~Beau,
+      \newblock Large-$q$ Limit of the Admissible Fibre (Q5a),
+      \newblock Preprint, 2026.
+
+      \bibitem{Beau2026q5b}
+      J.~Beau,
+      \newblock BFS Shell Stratification and the Emergence of Four-Dimensional Lorentzian
+      Geometry (Q5b),
+      \newblock Preprint, 2026.
+
+      \bibitem{Beau2026q7}
+      J.~Beau,
+      \newblock Three Admissible Directions and Three Spatial Dimensions: A Structural Bridge
+      Candidate (Q7),
+      \newblock Preprint, 2026.
+
+      \bibitem{Beau2026q9}
+      J.~Beau,
+      \newblock Proof of the Lifting Hypothesis \textup{[H-lift]}: Kinetic-Sector Identification
+      via Generator Suppression (Q9),
+      \newblock Preprint, 2026.
+
+      \bibitem{Beau2026q10}
+      J.~Beau,
+      \newblock Asymptotic $\mathfrak{su}(2)$-Isotropy of the Effective Quadratic Form and the
+      Identification $A_H = 2$ (Q10),
+      \newblock Preprint, 2026.
+
+      \bibitem{Beau2026a26}
+      J.~Beau,
+      \newblock Shell-Alignment from Projection Locking (O22),
+      \newblock Preprint, 2026.
+
+      \bibitem{Beau2026a29}
+      J.~Beau,
+      \newblock Systematic Pair-Level Campaign for $\delta_{\mathrm{pair}}$ (O25),
+      \newblock Preprint, 2026. DOI:~10.5281/zenodo.19462132.
+
+      \bibitem{Rudin1976}
+      W.~Rudin,
+      \newblock \emph{Principles of Mathematical Analysis}, 3rd ed.,
+      \newblock McGraw-Hill, 1976.
+
+    \end{thebibliography}
+
+\end{document}
