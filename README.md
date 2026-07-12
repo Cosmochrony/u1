@@ -1,8 +1,8 @@
 # U1 — Uniform Spectral Universality for Weil Fingerprint Energies
 
 This repository contains the source of the **U1 Cosmochrony paper**
-[*Uniform Spectral Universality for Weil Fingerprint Energies:
-Proof of [U] with Rate $O(q^{-1/2})$*](out/u1.pdf).
+*Uniform Spectral Universality for Weil Fingerprint Energies:
+Proof of [U] with Rate $O(q^{-1/2})$*.
 
 This work closes a technical gap in the emergent-geometry sub-programme.
 The Q10 paper reduces the proof of spatial isotropy ($A_H = 2$) to a single
