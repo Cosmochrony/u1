@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you cite this work, please use the metadata from this file."
+title: "Uniform Spectral Universality for Weil Fingerprint Energies: Proof of [U] with Rate O(q^-1/2)"
+type: software
+authors:
+  - family-names: "Beau"
+    given-names: "Jérôme"
+repository-code: "https://github.com/Cosmochrony/u1"
+url: "https://cosmochrony.org/science/emergent-geometry/u1/"
+doi: "10.5281/zenodo.19881146"
+license: "CC-BY-4.0"
+preferred-citation:
+  type: article
+  title: "Uniform Spectral Universality for Weil Fingerprint Energies: Proof of [U] with Rate O(q^-1/2)"
+  authors:
+    - family-names: "Beau"
+      given-names: "Jérôme"
+  year: 2026
+  doi: "10.5281/zenodo.19881146"
+  url: "https://doi.org/10.5281/zenodo.19881146"
