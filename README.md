@@ -80,7 +80,6 @@ pdflatex -output-directory=out tex/u1.tex
 
 ## Links
 
-- 📄 [Paper PDF](out/u1.pdf)
 - 🔗 DOI: [10.5281/zenodo.19881146](https://doi.org/10.5281/zenodo.19881146)
 - 🌐 Website: https://cosmochrony.org/science/emergent-geometry/u1/
 
