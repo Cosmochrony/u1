@@ -4,8 +4,7 @@ This repository contains the source of the **U1 Cosmochrony paper**
 *Uniformity Requirements for Weil Fingerprint Energies:
 Obstructions to the Lipschitz Route to [U]*.
 
-**Version 2.0 candidate, not deposited.** The concept DOI below resolves to the
-published record, not this candidate.
+**Version 2.0, published.** The concept DOI below resolves to this version.
 
 Q10 proposes a conditional route from spectral universality to the isotropy
 identification ($A_H = 2$). Its coefficient and geometric steps await a separate
