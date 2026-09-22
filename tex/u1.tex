@@ -66,8 +66,9 @@
     distinct central characters are
     \emph{equidistant}, at operator distance exactly $2\cos(\pi/2q)$, independently of how
     close the characters are.
-    The generator route therefore supplies no modulus of continuity in $\theta$ whatever,
-    not merely a weaker one, and the equicontinuity input of the former proof is
+    This equidistance rules out a modulus inferred from individual-generator distances.
+    A separate adjacent-character calculation shows that their summed operator also has
+    no uniform modulus in $\theta$; hence the equicontinuity input of the former proof is
     unavailable.
     Two further gaps are recorded and retyped rather than repaired: the fingerprint energy
     of O25 is an integer Gram\textendash Schmidt rank increment on a three-component block,
@@ -148,8 +149,9 @@
         $|B_n| \sim Cn^4$; Q5b's Carnot convergence theorem is qualitative and states no rate.
       \end{enumerate}
 
-      Defect~1 is fatal by itself and is not a matter of constants: the obstruction below
-      shows the route yields no modulus of continuity at all.
+      Defect~1 is fatal to the former generator-by-generator estimate and is not a matter
+      of constants; a separate example below excludes a uniform modulus for the summed
+      operator as well.
 
     \subsection{Main result}
 
@@ -166,12 +168,16 @@
         $\|\rho_{q,c}(X) - \rho_{q,c'}(X)\|_{\mathrm{op}} \leq K|c-c'|/q$ holds for all
         $q$ and all $c \neq c'$; and no modulus of continuity in the reduced character
         $\theta = c/q$ can be extracted from the operator distance between the generators.
-        In particular the equicontinuity input used by version~1 is unavailable, and
+        This conclusion concerns individual generators.
+        The separate adjacent-character example in the discussion of
+        Lemma~\ref{lem:lipschitz} shows that their summed operator also lacks a uniform
+        modulus; thus the equicontinuity input used by version~1 is unavailable and
         hypothesis~[U] is not established by that route.
       \end{theorem}
 
-      Theorem~\ref{thm:main} is proved in Section~\ref{sec:proof} from the exact computation
-      of Lemma~\ref{lem:generator-perturb}.
+      Theorem~\ref{thm:main} uses the exact computation of
+      Lemma~\ref{lem:generator-perturb} for individual generators and the separate
+      summed-operator example in the discussion of Lemma~\ref{lem:lipschitz}.
       It is a statement about their Heisenberg multiplication generators, not about~[U]:
       it closes one route and
       leaves the hypothesis open.
@@ -496,7 +502,10 @@
       bounded below by $1.90$ uniformly, so no function $\omega$ with
       $\omega(0^+) = 0$ can dominate it.
       Since the equicontinuity used in Proposition~\ref{prop:uniform-large} was derived
-      solely from this distance through~\eqref{eq:op-stability}, that input is unavailable.
+      solely from this distance through~\eqref{eq:op-stability}, that argument cannot
+      supply the input.
+      The adjacent-character calculation in the discussion of Lemma~\ref{lem:lipschitz}
+      separately excludes a uniform modulus for the summed operator itself.
     \end{proof}
 
     \begin{remark}[Numerical illustration]\label{rem:numerics}

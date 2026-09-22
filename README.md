@@ -31,6 +31,8 @@ a value **independent of $c$ and $c'$** and tending to $2$. Distinct central
 characters are therefore mutually equidistant, uniformly in $q$: the generator
 distance carries no information about $|c - c'|$, and no modulus of continuity
 in the reduced character $\theta = c/q$ can be extracted from it.
+Separately, the example $c=1$, $c'=2$ shows that the summed operator has a
+distance tending to $4$ even though $|c-c'|/q\to0$.
 
 This is an unconditional statement about finite Heisenberg–Schrödinger representations.
 The associated Weil action is distinct. The theorem uses none of
@@ -42,8 +44,9 @@ the Q5a–Q5b hypotheses, so the paper no longer stands or falls with them.
    $\|\rho_{q,c}(s) - \rho_{q,c'}(s)\| \leq 2\pi|c-c'|/q$. At $q = 61$ with
    $c' = c+1$, that bound reads $0.1030$ while the true distance is $1.9993$.
    The maximisation over $k$ lost a factor $q-1$. This is not a matter of
-   constants: by Theorem 1.1 the route yields no modulus of continuity at all,
-   so the equicontinuity input of the former proof is unavailable.
+   constants: Theorem 1.1 rules out the claimed individual-generator estimate,
+   and the separate summed-operator example rules out its proposed replacement.
+   The equicontinuity input of the former proof is unavailable.
 
 2. **The observable was silently replaced.** O25 defines $\delta r_n$ as the
    *number* of shell-$n$ fingerprint vectors linearly independent of the
