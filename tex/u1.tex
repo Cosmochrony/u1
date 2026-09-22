@@ -8,7 +8,7 @@
 \hypersetup{
   pdftitle={Uniformity Requirements for Weil Fingerprint Energies: Obstructions to the Lipschitz Route to [U]},
   pdfauthor={J\'er\^ome Beau},
-  pdfkeywords={Weil representation; Heisenberg group; central character; operator perturbation;
+  pdfkeywords={Weil fingerprint; finite Heisenberg representation; central character; operator perturbation;
     spectral universality; equicontinuity; Gram-Schmidt rank increment; withdrawn claim; Cosmochrony},
   pdfsubject={Cosmochrony spectral geometry programme, paper U1}
 }
@@ -51,17 +51,19 @@
   \maketitle
 
   \begin{abstract}
-    The Q10 paper of the Cosmochrony programme reduces the isotropy identification
-    $A_H = 2$ to the O-series spectral universality hypothesis~[U]:
+    Q10 proposes a conditional route from the O-series spectral universality hypothesis~[U]
+    toward the isotropy identification $A_H = 2$; its coefficient and geometric steps
+    require a separate audit:
     $\max_c |\sigma_c(n) - \sigma_*(n)| \leq \varepsilon(q)\,\sigma_*(n)$
     uniformly over the fitting window $n \leq n_*(q)$.
     Version~1 of this paper claimed a proof of~[U] with rate $O(q^{-1/2})$, resting on a
     Lipschitz continuity of the Weil fingerprint energy in the reduced character
-    $\theta = c/q$, itself derived from an operator perturbation estimate on the Weil
-    generators.
+    $\theta = c/q$, itself derived from an operator perturbation estimate on the
+    Heisenberg\textendash Schr\"odinger generators.
     That derivation is false, and this version withdraws the claim.
     We prove instead an exact obstruction: for an odd prime $q$, the multiplication
-    generators of the Weil representations at any two distinct central characters are
+    generators of the finite Heisenberg\textendash Schr\"odinger representations at any two
+    distinct central characters are
     \emph{equidistant}, at operator distance exactly $2\cos(\pi/2q)$, independently of how
     close the characters are.
     The generator route therefore supplies no modulus of continuity in $\theta$ whatever,
@@ -83,7 +85,8 @@
 
   \bigskip
   \noindent\textbf{Keywords.}
-  Weil representation; Heisenberg group; central character; operator perturbation;
+  Weil fingerprint; Heisenberg\textendash Schr\"odinger representation; central character;
+  operator perturbation;
   spectral universality; equicontinuity; Gram\textendash Schmidt rank increment;
   withdrawn claim; Cosmochrony.
 
@@ -98,8 +101,9 @@
 
     \subsection{Context}
 
-      Paper Q10~\cite{Beau2026q10} of the Cosmochrony spectral geometry programme establishes
-      the conditional chain
+      Paper Q10~\cite{Beau2026q10} of the Cosmochrony spectral geometry programme proposes
+      the following conditional chain, whose coefficient and geometric implications are
+      not adjudicated here:
       \begin{equation}\label{eq:isotropy-chain}
         \text{[U]} \;\Longrightarrow\; A_H(q) \to 2 \;\Longrightarrow\;
         g^{\mu\nu} = \mathrm{diag}(-A_\tau, 2, 2, 2).
@@ -151,7 +155,7 @@
 
       \begin{theorem}[Equidistance obstruction to the generator route]\label{thm:main}
         Let $q \geq 5$ be prime.
-        For all $c \neq c'$ in $(\mathbb{Z}/q\mathbb{Z})^\times$, the Weil multiplication
+        For all $c \neq c'$ in $(\mathbb{Z}/q\mathbb{Z})^\times$, the Heisenberg multiplication
         generators satisfy
         \begin{equation}\label{eq:rate}
           \bigl\|\rho_{q,c}(X) - \rho_{q,c'}(X)\bigr\|_{\mathrm{op}}
@@ -168,7 +172,8 @@
 
       Theorem~\ref{thm:main} is proved in Section~\ref{sec:proof} from the exact computation
       of Lemma~\ref{lem:generator-perturb}.
-      It is a statement about the representations, not about~[U]: it closes one route and
+      It is a statement about their Heisenberg multiplication generators, not about~[U]:
+      it closes one route and
       leaves the hypothesis open.
 
     \subsection{Structure of the argument}
@@ -188,39 +193,48 @@
     \subsection{Weil fingerprint energy}
 
       Fix a prime $q \geq 5$ and a character $c \in (\mathbb{Z}/q\mathbb{Z})^\times$.
-      The Weil representation of $G_q = \Heis_3(\mathbb{Z}/q\mathbb{Z})$ at central character
+      The finite Heisenberg\textendash Schr\"odinger representation of
+      $G_q = \Heis_3(\mathbb{Z}/q\mathbb{Z})$ at central character
       $e^{2\pi i c/q}$ is denoted $\rhoc : G_q \to U(\Cq)$, acting on $\Cq = \mathbb{C}^q$ by
       \begin{equation}\label{eq:weil-action}
         (\rhoc(X)f)(k) = e^{2\pi i ck/q}\,f(k), \qquad
         (\rhoc(Y)f)(k) = f(k+1), \qquad k \in \mathbb{Z}/q\mathbb{Z}.
       \end{equation}
+      Its associated Weil action implements symplectic automorphisms and is a distinct
+      representation; the multiplication and shift operators in~\eqref{eq:weil-action}
+      belong to the Heisenberg action.
       The observable of the O-series campaign is
       \begin{equation}\label{eq:sigc}
-        \sigc(n) := \frac{\delta r_n(c)}{|S_n|},
+        \sigma_{c,B}(n) := \frac{\delta r_n(c,B)}{|S_n|},
       \end{equation}
-      where, following O25~\cite{Beau2026a29}, $\delta r_n(c)$ is the \emph{number} of Weil
+      where $B=(c,c_2,c_3)$ is the sampled three-component block and, following
+      O25~\cite{Beau2026a29}, $\delta r_n(c,B)$ is the \emph{number} of Weil
       fingerprint vectors in BFS shell~$S_n$ that are linearly independent of the
       Gram\textendash Schmidt span built over shells $0,\dots,n-1$, and $|S_n|$ is the $n$-th
       shell size of $\mathrm{Cay}(G_q, S_q)$.
-      O25 measures this on a generic three-component block
-      $c_{\mathrm{block}} = (c_1,c_2,c_3)$ under a sampling protocol; it is not presented
-      there as a deterministic function of a single central character.
+      O25 measures this under a block-sampling protocol; it is not presented there as a
+      deterministic function of a single central character.
+      The historical notation
+      $\sigc(n)$ in~\eqref{eq:U} suppresses the block and requires a specified aggregation
+      before~[U] can be tested against the O25 measurement.
       The universal profile posited by~[U] is $\sigma_*(n) = C_*\,n^{-\dpair/2}$ with
       $\dpair \approx 7.44$.
 
       Two properties of~\eqref{eq:sigc} are used below and were not respected by version~1.
-      First, $\delta r_n(c)$ is an integer in $\{0,1,\dots,|S_n|\}$, so $\sigc(n) \in [0,1]$
+      First, $\delta r_n(c,B)$ is an integer in $\{0,1,\dots,|S_n|\}$, so
+      $\sigma_{c,B}(n) \in [0,1]$
       takes finitely many values for each $q$ and $n$.
       Second, the BFS shells $S_n$ are subsets of the group $G_q$, of order $q^3$, and carry
       no canonical structure of subspace of the $q$-dimensional carrier $\Cq$.
 
-    \subsection{Reduced character and BI parity}
+    \subsection{Reduced character and parity scope}
 
       Define the reduced character $\theta := c/q \in (0,1)$.
-      By the BI-parity theorem (O22~\cite{Beau2026a26}), $\sigc(n) = \sigma_{q-c}(n)$ for all
-      $c$ and $n$, so it suffices to consider $\theta \in (0, 1/2]$.
-      This reduction is unaffected by the defects recorded here and is retained at O22's own
-      scope.
+      The former argument used the parity map $c\leftrightarrow q-c$ to restrict attention
+      to $\theta\in(0,1/2]$.
+      O22 does not prove equality of the O25 rank increments under this map, and parity
+      covariance of a different response family does not supply that equality either.
+      No parity reduction for the sampled-block observable is imported here.
 
     \subsection{What Q5b supplies}
 
@@ -241,7 +255,7 @@
 
   \section{The Generator Route and Its Failure}\label{sec:lipschitz}
 
-    \begin{lemma}[Weil generator distance: exact value]\label{lem:generator-perturb}
+    \begin{lemma}[Heisenberg generator distance: exact value]\label{lem:generator-perturb}
       Let $q \geq 5$ be prime and $c, c' \in (\mathbb{Z}/q\mathbb{Z})^\times$ with
       $c \neq c'$. In the coordinates of~\eqref{eq:weil-action},
       \begin{equation}\label{eq:gen-perturb}
@@ -303,20 +317,24 @@
       $P$, and is retained.
       Both of its inputs fail.
 
-      \emph{First}, the identification of $\delta r_n(c)$ with a compressed operator norm is
+      \emph{First}, the claimed identification of $\delta r_n(c)$ with a compressed operator norm is
       not proved anywhere, and the two quantities are of different kinds: by
-      Section~\ref{sec:setup}, $\delta r_n(c)$ is an integer count of newly independent
+      Section~\ref{sec:setup}, the actual $\delta r_n(c,B)$ is an integer count of newly independent
       fingerprint vectors on a three-component block, whereas the right-hand side is a
       continuous function of one central character.
       The projection $\Pi_{S_n}$ is moreover never defined: BFS shells are subsets of $G_q$,
       not subspaces of $\Cq$.
       Whatever~\eqref{eq:op-stability} bounds, it is not the O25 observable.
 
-      \emph{Second}, even granting an identification, Lemma~\ref{lem:generator-perturb}
-      leaves no room for the conclusion: the generator distance is $2\cos(\pi/2q)$ for
-      \emph{every} pair of distinct characters, so
-      $\|d\rho_{q,c} - d\rho_{q,c'}\|_{\mathrm{op}}$ admits no bound tending to zero with
-      $|c-c'|/q$.
+      \emph{Second}, Lemma~\ref{lem:generator-perturb} invalidates the former
+      generator-by-generator triangle bound, but alone says nothing about cancellation in
+      their sum: the $X+X^{-1}$ terms even coincide when $c'=-c$.
+      A separate adjacent-character example does rule out the claimed modulus for this sum.
+      For $c=1$, $c'=2$, and $k=(q-1)/2$, the $Y$ and identity terms cancel, while the
+      difference of the $X+X^{-1}$ diagonals has absolute value
+      $2\cos(\pi/q)+2\cos(2\pi/q)\to4$ as $q\to\infty$.
+      Thus $\|d\rho_{q,1}-d\rho_{q,2}\|_{\mathrm{op}}$ stays bounded away from zero
+      although $|1-2|/q\to0$.
       The former proof obtained its factor by writing
       $\max_{0 \leq k < q} 2\pi|c-c'|\,|k|/q \leq 2\pi\,\frac{|c-c'|}{q}\cdot\frac{q-1}{q}$;
       the left-hand side equals $2\pi|c-c'|(q-1)/q$, larger by a factor $q-1$.
@@ -326,11 +344,12 @@
       Version~1 discussed the conservative step $|S_n| \geq 1$ in the divisor
       of~\eqref{eq:sigc}.
       The binding difficulty lies elsewhere.
-      Since $\delta r_n(c)$ is an integer, $\sigc(n)$ takes values in the finite grid
-      $\{0, 1/|S_n|, \dots, 1\}$; two characters either give the same value or differ by at
+      For any fixed sampled blocks, $\delta r_n(c,B)$ is an integer and
+      $\sigma_{c,B}(n)$ takes values in the finite grid
+      $\{0, 1/|S_n|, \dots, 1\}$; two block measurements either agree or differ by at
       least $1/|S_n|$.
       A statement such as~\eqref{eq:lipschitz} with $|c-c'| = 1$ therefore forces
-      $\sigma_c(n) = \sigma_{c'}(n)$ exactly as soon as $L|S_n| < q$, which is a rigidity
+      equality of the compared block measurements as soon as $L|S_n| < q$, which is a rigidity
       claim about the fingerprint filtration, not a continuity estimate.
       Any future Lipschitz-type input must be stated for the quantised observable, or for an
       explicitly constructed continuous surrogate together with a proved comparison.
@@ -496,7 +515,8 @@
       All are withdrawn:
       \begin{enumerate}
         \item[(i)] $A_H(q) \to 2$ with rate $O(q^{-1/2})$ is \emph{not} established here;
-        Q10's chain~\eqref{eq:isotropy-chain} remains conditional on~[U], which remains open.
+        Q10's proposed coefficient step also awaits separate audit and remains conditional
+        on~[U], which remains open.
         \item[(ii)] The effective co-metric $g^{\mu\nu} = \mathrm{diag}(-A_\tau,2,2,2)$ is not
         established by this paper.
         \item[(iii)] The claim that the Bridge conjecture of Q7~\cite{Beau2026q7} is resolved
@@ -514,14 +534,14 @@
       exponent cannot validate a theorem, and agreement between a withdrawn rate and a fitted
       one is not evidence for either.
       The O25 numbers retain their own status as measurements of the fingerprint observable
-      at $q \leq 401$.
+      at $q \leq 601$.
     \end{remark}
 
     \begin{remark}[What is proved and what is assumed]\label{rem:epistemic}
       This version proves Theorem~\ref{thm:main} and Lemma~\ref{lem:generator-perturb}, which
-      are unconditional statements about Weil representations at distinct central characters,
-      and retains inequality~\eqref{eq:op-stability} and the O22 parity reduction at their
-      own scopes.
+      are unconditional statements about finite Heisenberg\textendash Schr\"odinger
+      representations at distinct central characters, and retains
+      inequality~\eqref{eq:op-stability} at its own scope.
       It proves nothing about~[U].
       The Q5a\textendash Q5b hypotheses are not used, so the paper no longer stands or falls
       with them.
@@ -543,7 +563,8 @@
       (Remark~\ref{rem:absolute-relative}).
       \textbf{Interpretive outlook.}
       Theorem~\ref{thm:main} suggests where not to look.
-      The Weil representations at distinct central characters are mutually as far apart as
+      The Heisenberg multiplication generators at distinct central characters are
+      mutually as far apart as
       unitaries can almost be, uniformly in $q$; if the fingerprint energies nevertheless
       converge to a common profile, that universality is a property of the rank increment of
       the filtration, invisible to the operator distance between the representations that

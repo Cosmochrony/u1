@@ -7,8 +7,9 @@ Obstructions to the Lipschitz Route to [U]*.
 **Version 2.0 candidate, not deposited.** The concept DOI below resolves to the
 published record, not this candidate.
 
-The Q10 paper reduces the isotropy identification ($A_H = 2$) to a single
-spectral universality hypothesis:
+Q10 proposes a conditional route from spectral universality to the isotropy
+identification ($A_H = 2$). Its coefficient and geometric steps await a separate
+audit. The input it calls [U] is:
 
 > **[U]** &nbsp; $\max_c |\sigma_c(n) - \sigma_*(n)| \leq \varepsilon(q)\,\sigma_*(n)$,
 > uniformly over the fitting window $n \leq n_*(q)$, with $\varepsilon(q) \to 0$.
@@ -21,7 +22,7 @@ this paper shows [U] to be false.
 ## What is proved
 
 **Theorem 1.1 (equidistance obstruction).** For every prime $q \geq 5$ and all
-distinct central characters $c \neq c'$, the Weil multiplication generators
+distinct central characters $c \neq c'$, the Heisenberg multiplication generators
 satisfy
 
 $$\|\rho_{q,c}(X) - \rho_{q,c'}(X)\|_{\mathrm{op}} = 2\cos\left(\frac{\pi}{2q}\right) > 1.90,$$
@@ -31,7 +32,8 @@ characters are therefore mutually equidistant, uniformly in $q$: the generator
 distance carries no information about $|c - c'|$, and no modulus of continuity
 in the reduced character $\theta = c/q$ can be extracted from it.
 
-This is an unconditional statement about Weil representations. It uses none of
+This is an unconditional statement about finite Heisenberg–Schrödinger representations.
+The associated Weil action is distinct. The theorem uses none of
 the Q5a–Q5b hypotheses, so the paper no longer stands or falls with them.
 
 ## What is withdrawn, and why
@@ -67,15 +69,18 @@ for the relative error [U] actually demands.
 
 - The operator-norm stability inequality
   $\bigl|\|PAP\| - \|PBP\|\bigr| \leq \|A - B\|$, at its own scope.
-- The O22 BI-parity reduction $\sigma_c = \sigma_{q-c}$.
 - The O25 measurements, as measurements.
+
+The former parity reduction $c\leftrightarrow q-c$ is not retained for O25's
+sampled-block observable: O22 does not prove equality of those rank increments.
 
 ## Consequences
 
 Corollary 7.1 is withdrawn in full: $A_H(q) \to 2$ is not established here, the
 effective co-metric $g^{\mu\nu} = \mathrm{diag}(-A_\tau, 2, 2, 2)$ is not
 established by this paper, and the claim to resolve the Q7 bridge in the
-isotropic case is withdrawn. Q10's chain remains conditional on [U].
+isotropic case is withdrawn. Q10's proposed coefficient step awaits separate
+audit and remains conditional on [U].
 
 Remark 7.4 states the two estimates a proof of [U] would still have to supply:
 a proved comparison between the O25 rank increment and whatever analytic
@@ -84,7 +89,7 @@ BFS balls to the independence count, in relative form.
 
 ## Keywords
 
-Weil representation, Heisenberg group, central character, operator perturbation,
+Weil fingerprint, finite Heisenberg representation, central character, operator perturbation,
 spectral universality, equicontinuity, Gram–Schmidt rank increment, withdrawn
 claim.
 
