@@ -1,69 +1,101 @@
-# U1 — Uniform Spectral Universality for Weil Fingerprint Energies
+# U1 — Uniformity Requirements for Weil Fingerprint Energies
 
 This repository contains the source of the **U1 Cosmochrony paper**
-*Uniform Spectral Universality for Weil Fingerprint Energies:
-Proof of [U] with Rate $O(q^{-1/2})$*.
+*Uniformity Requirements for Weil Fingerprint Energies:
+Obstructions to the Lipschitz Route to [U]*.
 
-This work closes a technical gap in the emergent-geometry sub-programme.
-The Q10 paper reduces the proof of spatial isotropy ($A_H = 2$) to a single
+**Version 2.0 candidate, not deposited.** The concept DOI below resolves to the
+published record, not this candidate.
+
+The Q10 paper reduces the isotropy identification ($A_H = 2$) to a single
 spectral universality hypothesis:
 
-> **[U]** &nbsp; $\max_c |\sigma_c(n) - \sigma_*(n)| \leq \varepsilon(q)\,\sigma_*(n) \to 0$,
-> uniformly over the fitting window $n \leq n_*(q)$.
+> **[U]** &nbsp; $\max_c |\sigma_c(n) - \sigma_*(n)| \leq \varepsilon(q)\,\sigma_*(n)$,
+> uniformly over the fitting window $n \leq n_*(q)$, with $\varepsilon(q) \to 0$.
 
-The present paper **establishes [U] with rate $\varepsilon(q) = O(q^{-1/2})$**,
-turning the isotropy result of Q10 into an unconditional statement.
+Version 1 of this paper claimed to prove [U] with rate $\varepsilon(q) = O(q^{-1/2})$.
+**That proof is wrong, and version 2.0 withdraws the claim.** [U], its rate and
+the identification $A_H = 2$ are open on the inputs available here. Nothing in
+this paper shows [U] to be false.
 
-## Conceptual Overview
+## What is proved
 
-The proof rests on two independent inputs about the Weil fingerprint energy
-$\sigma_c(n)$, seen as a function of the reduced character $\theta = c/q$:
+**Theorem 1.1 (equidistance obstruction).** For every prime $q \geq 5$ and all
+distinct central characters $c \neq c'$, the Weil multiplication generators
+satisfy
 
-1. **Lipschitz continuity in $\theta$** (equicontinuity).
-   $\sigma_c(n)$ is Lipschitz in $\theta = c/q$, uniformly in $n$, as a consequence
-   of a standard operator-perturbation estimate on the Weil generators.
+$$\|\rho_{q,c}(X) - \rho_{q,c'}(X)\|_{\mathrm{op}} = 2\cos\left(\frac{\pi}{2q}\right) > 1.90,$$
 
-2. **Pointwise convergence** for each fixed $\theta$.
-   $\sigma_c(n) \to \sigma_*(n)$ pointwise, inherited from the
-   BFS–Carnot–Carathéodory convergence of Q5b at rate $O(q^{-1/2})$.
+a value **independent of $c$ and $c'$** and tending to $2$. Distinct central
+characters are therefore mutually equidistant, uniformly in $q$: the generator
+distance carries no information about $|c - c'|$, and no modulus of continuity
+in the reduced character $\theta = c/q$ can be extracted from it.
 
-Lipschitz equicontinuity together with pointwise convergence yields **uniform
-convergence on compact subsets** $\theta \in [\theta_1, 1/2]$ by the
-Arzelà–Ascoli theorem. The complementary small-$\theta$ regime
-$\theta \in (0, \theta_0(q))$ with $\theta_0(q) = q^{-1/2}$ is handled by a
-Lipschitz triangle argument and requires **no Born–Infeld input**. Combining the
-two regimes gives the uniform rate $\varepsilon(q) = O(q^{-1/2})$.
+This is an unconditional statement about Weil representations. It uses none of
+the Q5a–Q5b hypotheses, so the paper no longer stands or falls with them.
 
-## Core Results
+## What is withdrawn, and why
 
-1. **Uniform universality [U] holds**, with explicit rate $\varepsilon(q) = O(q^{-1/2})$.
-2. **The rate is structural**: it is inherited from the $O(q^{-1/2})$ convergence
-   of the underlying sub-Riemannian (Q5b) geometry, not fitted.
-3. **Isotropy becomes unconditional**: the $A_H = 2$ result of Q10 no longer
-   depends on an assumed universality hypothesis.
-4. **The argument is elementary given its two inputs**: perturbative Lipschitz
-   continuity plus Arzelà–Ascoli, with no appeal to the Born–Infeld dynamics.
+1. **The generator estimate was false.** Version 1 asserted
+   $\|\rho_{q,c}(s) - \rho_{q,c'}(s)\| \leq 2\pi|c-c'|/q$. At $q = 61$ with
+   $c' = c+1$, that bound reads $0.1030$ while the true distance is $1.9993$.
+   The maximisation over $k$ lost a factor $q-1$. This is not a matter of
+   constants: by Theorem 1.1 the route yields no modulus of continuity at all,
+   so the equicontinuity input of the former proof is unavailable.
 
-## What This Paper Does Not Assume
+2. **The observable was silently replaced.** O25 defines $\delta r_n$ as the
+   *number* of shell-$n$ fingerprint vectors linearly independent of the
+   Gram–Schmidt span of the earlier shells, measured on a three-component block
+   under a sampling protocol. Version 1 set this integer equal to a compressed
+   operator norm $\|\Pi_{S_n} \, d\rho_{q,c} \, \Pi_{S_n}\|_{\mathrm{op}}$
+   without any identification, and without defining $\Pi_{S_n}$ as a subspace of
+   the $q$-dimensional carrier.
 
-- no Born–Infeld input in the small-$\theta$ regime,
-- no fitted convergence rate (the $O(q^{-1/2})$ rate is derived from Q5b),
-- no uniformity beyond the compact fitting window $n \leq n_*(q)$,
-- no dynamical or background-geometry assumptions.
+3. **The imported rate does not exist.** Version 1 attributed a
+   Gromov–Hausdorff rate $O(q^{-1/2})$ to Q5b Theorem 2.1. That theorem is the
+   Bass–Guivarc'h ball growth $|B_n| \sim Cn^4$; Q5b's Carnot convergence
+   theorem is qualitative and states no rate.
+
+Further retyped steps: the $\theta$-independence argument used a Carnot
+dilation, which is an equivalence after pullback and does not preserve the
+central character; Arzelà–Ascoli yields uniform convergence but no rate; the
+small-$\theta$ argument reversed an inequality and substituted a $q$-dependent
+$\theta_1$ into a fixed-$\theta_1$ proposition; and absolute error was exchanged
+for the relative error [U] actually demands.
+
+## What remains usable
+
+- The operator-norm stability inequality
+  $\bigl|\|PAP\| - \|PBP\|\bigr| \leq \|A - B\|$, at its own scope.
+- The O22 BI-parity reduction $\sigma_c = \sigma_{q-c}$.
+- The O25 measurements, as measurements.
+
+## Consequences
+
+Corollary 7.1 is withdrawn in full: $A_H(q) \to 2$ is not established here, the
+effective co-metric $g^{\mu\nu} = \mathrm{diag}(-A_\tau, 2, 2, 2)$ is not
+established by this paper, and the claim to resolve the Q7 bridge in the
+isotropic case is withdrawn. Q10's chain remains conditional on [U].
+
+Remark 7.4 states the two estimates a proof of [U] would still have to supply:
+a proved comparison between the O25 rank increment and whatever analytic
+quantity is estimated, and a quantitative transfer from metric convergence of
+BFS balls to the independence count, in relative form.
 
 ## Keywords
 
-Weil representation, Heisenberg group, BFS convergence, Lipschitz continuity,
-Arzelà–Ascoli, spectral universality, Gromov–Hausdorff convergence.
+Weil representation, Heisenberg group, central character, operator perturbation,
+spectral universality, equicontinuity, Gram–Schmidt rank increment, withdrawn
+claim.
 
 ## Repository Contents
 
 ```
 u1/
 ├── tex/         # LaTeX sources (u1.tex, cosmochrony-bibliography.bib, references.bib)
-├── out/         # Compiled paper PDF (u1.pdf)
 ├── compile.sh   # Build script (pdflatex + bibtex)
 ├── zenodo.json  # Zenodo deposition metadata
+├── CITATION.cff # Citation metadata
 └── README.md
 ```
 
@@ -71,24 +103,19 @@ u1/
 
 ```bash
 bash compile.sh
-# or manually:
-pdflatex -output-directory=out tex/u1.tex
-cd out && bibtex u1 && cd ..
-pdflatex -output-directory=out tex/u1.tex
-pdflatex -output-directory=out tex/u1.tex
 ```
 
 ## Links
 
-- 🔗 DOI: [10.5281/zenodo.19881146](https://doi.org/10.5281/zenodo.19881146)
+- 🔗 Concept DOI: [10.5281/zenodo.19881146](https://doi.org/10.5281/zenodo.19881146)
 - 🌐 Website: https://cosmochrony.org/science/emergent-geometry/u1/
 
 ## Citation
 
 If you reference this work, please cite:
 
-> J. Beau, *Uniform Spectral Universality for Weil Fingerprint Energies:
-> Proof of [U] with Rate $O(q^{-1/2})$*, Zenodo, 2026.
+> J. Beau, *Uniformity Requirements for Weil Fingerprint Energies:
+> Obstructions to the Lipschitz Route to [U]*, Zenodo, 2026.
 > DOI: 10.5281/zenodo.19881146.
 
 ## Acknowledgements
@@ -103,5 +130,5 @@ responsibility of the author.
 
 This repository is intended as a research reference. Critical feedback,
 independent analyses, and formal scrutiny are welcome. Please open an issue to
-discuss the Lipschitz continuity estimate, the Arzelà–Ascoli argument, the
-small-$\theta$ regime, or the inherited $O(q^{-1/2})$ rate.
+discuss the equidistance obstruction, the status of the O25 observable, or the
+estimates a proof of [U] would require.
