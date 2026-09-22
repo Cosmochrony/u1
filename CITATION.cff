@@ -1,17 +1,18 @@
 cff-version: 1.2.0
 message: "If you cite this work, please use the metadata from this file."
-title: "Uniform Spectral Universality for Weil Fingerprint Energies: Proof of [U] with Rate O(q^-1/2)"
+title: "Uniformity Requirements for Weil Fingerprint Energies: Obstructions to the Lipschitz Route to [U]"
 type: software
 authors:
   - family-names: "Beau"
     given-names: "Jérôme"
 repository-code: "https://github.com/Cosmochrony/u1"
 url: "https://cosmochrony.org/science/emergent-geometry/u1/"
+version: "2.0"
 doi: "10.5281/zenodo.19881146"
 license: "CC-BY-4.0"
 preferred-citation:
   type: article
-  title: "Uniform Spectral Universality for Weil Fingerprint Energies: Proof of [U] with Rate O(q^-1/2)"
+  title: "Uniformity Requirements for Weil Fingerprint Energies: Obstructions to the Lipschitz Route to [U]"
   authors:
     - family-names: "Beau"
       given-names: "Jérôme"
