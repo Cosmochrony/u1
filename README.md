@@ -15,7 +15,7 @@ The character-indexed form of [U] audited here is:
 
 Version 1 of this paper claimed to prove [U] with rate $\varepsilon(q) = O(q^{-1/2})$.
 **That proof is wrong, and version 2.0 withdraws the claim.** [U], its rate and
-the identification $A_H = 2$ are open on the inputs available here. Nothing in
+any value of $A_H$ are open on the inputs available here. Nothing in
 this paper shows [U] to be false.
 
 ## What is proved
