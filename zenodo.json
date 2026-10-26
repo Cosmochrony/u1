@@ -2,6 +2,7 @@
   "bib_key": "Beau2026u1",
   "web_url": "https://cosmochrony.org/science/emergent-geometry/u1/",
   "main_tex": "tex/u1.tex",
+  "notes": "Version 2.1 describes Q10 as it stands: a ratio bound for A_H/A_Z under [U], [W], [R] and [T], with an absolute value only under a separate scale input, none of which is established, and a proposition showing that the inputs cited for [U] do not imply it. The character-indexed form of [U] audited here is distinguished from the block-family definition of Q10. The obstruction result is unchanged, and [U] remains open.",
   "zenodo_id": 19881146,
   "doi": "10.5281/zenodo.19881146"
 }
