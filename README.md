@@ -4,7 +4,7 @@ This repository contains the source of the **U1 Cosmochrony paper**
 *Uniformity Requirements for Weil Fingerprint Energies:
 Obstructions to the Lipschitz Route to [U]*.
 
-**Version 2.1.** It describes Q10 as it stands (a conditional ratio bound, with an absolute value only under a
+**Version 2.1, published** ([Zenodo record 23672069](https://zenodo.org/record/23672069)). It describes Q10 as it stands (a conditional ratio bound, with an absolute value only under a
 separate scale input) and states that the inputs cited for [U] do not imply it. The concept DOI below resolves to the latest version.
 
 Q10 bounds the coefficient ratio $A_H/A_Z$ under spectral universality [U] and further
