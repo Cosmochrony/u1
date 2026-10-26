@@ -47,13 +47,14 @@
     \small Independent Researcher\\
     \small \href{mailto:jerome.beau@cosmochrony.org}{jerome.beau@cosmochrony.org}
     }
-    \date{2026\\[2pt]\small Version 2.0}
+    \date{2026\\[2pt]\small Version 2.1}
   \maketitle
 
   \begin{abstract}
-    Q10 proposes a conditional route from the O-series spectral universality hypothesis~[U]
-    toward the isotropy identification $A_H = 2$; its coefficient and geometric steps
-    require a separate audit:
+    Q10 bounds the coefficient ratio $A_H/A_Z$ under the O-series spectral universality
+    hypothesis~[U] and further named inputs that are not established; its coefficient and
+    geometric steps require a separate audit.
+    The form of~[U] audited here is indexed by characters:
     $\max_c |\sigma_c(n) - \sigma_*(n)| \leq \varepsilon(q)\,\sigma_*(n)$
     uniformly over the fitting window $n \leq n_*(q)$.
     Version~1 of this paper claimed a proof of~[U] with rate $O(q^{-1/2})$, resting on a
@@ -102,22 +103,27 @@
 
     \subsection{Context}
 
-      Paper Q10~\cite{Beau2026q10} of the Cosmochrony spectral geometry programme proposes
-      the following conditional chain, whose coefficient and geometric implications are
-      not adjudicated here:
+      Paper Q10~\cite{Beau2026q10} of the Cosmochrony spectral geometry programme proves the
+      following conditional statement, whose coefficient and geometric inputs are not adjudicated
+      here: under [U], a sector assignment, a linear response law and a supplied rank-three target,
       \begin{equation}\label{eq:isotropy-chain}
-        \text{[U]} \;\Longrightarrow\; A_H(q) \to 2 \;\Longrightarrow\;
-        g^{\mu\nu} = \mathrm{diag}(-A_\tau, 2, 2, 2).
+        \left|\frac{A_H(q)}{A_Z(q)} - 1\right| \;\leq\; \frac{2\,\varepsilon(q)}{1 - \varepsilon(q)},
       \end{equation}
-      The universality hypothesis~[U] (Q10 Definition~3.1) asserts the existence of a universal
+      and an absolute value of $A_H$ follows only from a separate scale input that supplies $A_Z$
+      (Q10 Theorem~1.1); none of these inputs is established.
+      Q10 Definition~3.1 states [U] for a finite block family and a depth window, with rate
+      $\varepsilon(q) \in [0,1)$.
+      The form audited here indexes the bound by characters: it asserts the existence of a universal
       power-law profile $\sigma_*(n)$ such that
       \begin{equation}\label{eq:U}
         \max_{c \in (\mathbb{Z}/q\mathbb{Z})^\times}
         |\sigma_c(n) - \sigma_*(n)| \;\leq\; \varepsilon(q)\,\sigma_*(n),
       \end{equation}
       uniformly for $n \leq n_*(q)$, with $\varepsilon(q) \to 0$.
-      Q10 Proposition~3.2 provides structural support for~[U] and numerical evidence
-      (O25 inter-pair variance), but leaves the proof of~\eqref{eq:U} open.
+      Q10 Proposition~3.2 records the inputs cited for~[U] (conjugation parity, a supplied
+      carrier, rank stability and the O25 concentration of pair exponents) and shows that they do
+      not imply it: they are compatible with the failure of~[U] for every $\varepsilon(q) < 1/3$.
+      The proof of~\eqref{eq:U} is open.
 
       Version~1 of the present paper claimed to close this gap.
       It did not.

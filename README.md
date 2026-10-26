@@ -6,9 +6,9 @@ Obstructions to the Lipschitz Route to [U]*.
 
 **Version 2.0, published.** The concept DOI below resolves to this version.
 
-Q10 proposes a conditional route from spectral universality to the isotropy
-identification ($A_H = 2$). Its coefficient and geometric steps await a separate
-audit. The input it calls [U] is:
+Q10 bounds the coefficient ratio $A_H/A_Z$ under spectral universality [U] and further
+named inputs that are not established; an absolute value needs a separate scale input.
+The character-indexed form of [U] audited here is:
 
 > **[U]** &nbsp; $\max_c |\sigma_c(n) - \sigma_*(n)| \leq \varepsilon(q)\,\sigma_*(n)$,
 > uniformly over the fitting window $n \leq n_*(q)$, with $\varepsilon(q) \to 0$.
@@ -81,8 +81,8 @@ sampled-block observable: O22 does not prove equality of those rank increments.
 Corollary 7.1 is withdrawn in full: $A_H(q) \to 2$ is not established here, the
 effective co-metric $g^{\mu\nu} = \mathrm{diag}(-A_\tau, 2, 2, 2)$ is not
 established by this paper, and the claim to resolve the Q7 bridge in the
-isotropic case is withdrawn. Q10's proposed coefficient step awaits separate
-audit and remains conditional on [U].
+isotropic case is withdrawn. Q10's coefficient statement remains conditional on [U]
+and on further inputs that are not established.
 
 Remark 7.4 states the two estimates a proof of [U] would still have to supply:
 a proved comparison between the O25 rank increment and whatever analytic
